@@ -8,7 +8,7 @@ namespace KomodoCafeChallenge
 {
    public class MenuRepo
     {
-        private List<Meal> _menuItems = new List<Meal>();
+        public List<Meal> _menuItems = new List<Meal>();
 
         //Create
         public void AddItemToMenu(Meal item)
@@ -16,7 +16,7 @@ namespace KomodoCafeChallenge
             _menuItems.Add(item);
         }
         //Read
-        public List<Meal> GetMenuItems(Meal name)
+        public List<Meal> GetMenuItems()
         {
             return _menuItems;
         }
@@ -26,7 +26,7 @@ namespace KomodoCafeChallenge
             Meal item = GetMealByName(mealName);
             if(item == null)
             {
-                return false;
+                return true;
             }
             else
             {

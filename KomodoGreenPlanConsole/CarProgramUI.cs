@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KomodoGreenPlan;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Diagnostics;
@@ -30,9 +31,10 @@ namespace KomodoGreenPlanConsole
                 switch (input)
                 {
                     case "1":
-                        CarsRepo.GetGasCarsList();
+                        GasCars.GetGasCarsList();
                         break;
                     case "2":
+                        CarsRepo.GetElectricCarsList();
                         break;
                     case "3":
                         break;

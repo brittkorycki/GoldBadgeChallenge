@@ -1,7 +1,10 @@
 ﻿using KomodoCafeChallenge;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,14 +12,14 @@ namespace KomodoCafeConsole
 {
     public class CafeProgramUI
     {
-       private MenuRepo menuRepo = new MenuRepo();
+       public MenuRepo menuRepo = new MenuRepo();
 
         public void Run()
         {
-            SeedMealMenu();
+            SeedMenuList();
             Options();
         }
-        private void Options()
+        public void Options()
         {
             bool keepRunning = true;
             while (keepRunning)
@@ -30,13 +33,13 @@ namespace KomodoCafeConsole
                 switch (input)
                 {
                     case "1":
-                        MenuRepo.AddItemToMenu();
+                        AddNewItemToMenu();
                         break;
                     case "2":
-                        MenuRepo.GetMenuItems();
+                        DisplayMenuItems();
                         break;
                     case "3":
-                        MenuRepo.RemoveMenuItemByName();
+                        RemoveMenuItemByName();
                         break;
                     case "4":
                         Console.WriteLine("Goodbye!");
@@ -52,7 +55,7 @@ namespace KomodoCafeConsole
             }
         }
 
-        private void AddNewItemToMenu()
+        public void AddNewItemToMenu()
         {
             Console.Clear();
             Meal newMeal = new Meal();
@@ -65,8 +68,45 @@ namespace KomodoCafeConsole
             newMeal.Description = Console.ReadLine();
             Console.WriteLine("Enter the ingredients for the menu item:");
             //newMeal.List < Ingredients > = Console.ReadLine();
-
+            Console.WriteLine("Enter a price for the menu item:");
+            string priceAsString = Console.ReadLine();
+            newMeal.Price = decimal.Parse(priceAsString);
+            menuRepo.AddItemToMenu(newMeal);
         }
+        public void DisplayMenuItems()
+        {
+            Console.Clear();
+            List<Meal> menuDisplay = menuRepo.GetMenuItems();
+            foreach (Meal meal in menuDisplay)
+            {
+                Console.WriteLine($"Meal: {meal.Name}\n" +
+                    $"Number: {meal.Number}");
+            }
+         }
+        public void RemoveMenuItemByName()
+        {
+            DisplayMenuItems();
+            Console.WriteLine("Enter the name of the menu item you wish to delete.");
+            string input = Console.ReadLine();
+            bool wasDeleted = menuRepo.RemoveMenuItembyName(input);
+            if (wasDeleted)
+            {
+                Console.WriteLine("The menu item was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The menu item could not be deleted.");
+            }
+        }
+        private void SeedMenuList()
+        {
+            Meal hamburger = new Meal(1, "Hamburger", "burger on bun", null, 1.25m);
+            Meal cheeseburger = new Meal(2, "Cheeseburger", "burger with cheese on a bun", null, 1.75m);
+            Meal nuggets = new Meal(3, "Chicken Nuggets", "nuggets", null, 2.00m);
 
+            menuRepo.AddItemToMenu(hamburger);
+            menuRepo.AddItemToMenu(cheeseburger);
+            menuRepo.AddItemToMenu(nuggets);
+          }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KomodoGreenPlan
 {
-    public class CarsRepo
+    public class GasCars
     {
         public List<GasCars> _gasCars = new List<GasCars>();
         //Create
@@ -43,7 +43,7 @@ namespace KomodoGreenPlan
         public bool RemoveGasCarsFromList(string model)
         {
             GasCars gasCar = GetGasCarsByModel(model);
-            if(model == null)
+            if (model == null)
             {
                 return false;
             }
@@ -57,20 +57,30 @@ namespace KomodoGreenPlan
         {
             foreach (GasCars gasCar in _gasCars)
             {
-                if (gasCar.Make.ToLower() == model.ToLower())
+                if (gasCar.Model.ToLower() == model.ToLower())
                 {
                     return model;
                 }
             }
             return null;
         }
-        private List<ElectricCars> _electricCars = new List<ElectricCars>();
+
+    }
+    public class ElectricCars
+        
+        public List<ElectricCars> _electricCars = new List<ElectricCars>();
         //Create
+        public void AddElectricCarToList(GasCars electricCars)
+        {
+            _electricCars.Add(electricCars);
+        }
         //Read
         //Update
         //Delete
         //Helper Method
-        private List<HybridCars> _hybridCars = new List<HybridCars>();
+
+
+        public List<HybridCars> _hybridCars = new List<HybridCars>();
         //Create
         //Read
         //Update
