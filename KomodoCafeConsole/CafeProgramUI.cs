@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Management.Instrumentation;
 using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,7 +59,7 @@ namespace KomodoCafeConsole
         public void AddNewItemToMenu()
         {
             Console.Clear();
-            Meal newMeal = new Meal();
+            Menu newMeal = new Menu();
             Console.WriteLine("Enter the number for the menu item:");
             string numberAsString = Console.ReadLine();
             newMeal.Number = int.Parse(numberAsString);
@@ -67,7 +68,7 @@ namespace KomodoCafeConsole
             Console.WriteLine("Enter a description for the menu item:");
             newMeal.Description = Console.ReadLine();
             Console.WriteLine("Enter the ingredients for the menu item:");
-            //newMeal.List < Ingredients > = Console.ReadLine();
+            newMeal.IngredientsList.Add(Console.ReadLine());
             Console.WriteLine("Enter a price for the menu item:");
             string priceAsString = Console.ReadLine();
             newMeal.Price = decimal.Parse(priceAsString);
@@ -76,11 +77,14 @@ namespace KomodoCafeConsole
         public void DisplayMenuItems()
         {
             Console.Clear();
-            List<Meal> menuDisplay = menuRepo.GetMenuItems();
-            foreach (Meal meal in menuDisplay)
+            List<Menu> menuDisplay = menuRepo.GetMenuItems();
+            foreach (Menu meal in menuDisplay)
             {
-                Console.WriteLine($"Meal: {meal.Name}\n" +
-                    $"Number: {meal.Number}");
+                Console.WriteLine($"Meal: {meal.Number}\n" +
+                    $"Number: {meal.Name}\n" +
+                    $"Description: {meal.Description}\n" +
+                    $"Ingredients: {meal.IngredientsList}\n" +
+                    $"Price: ${meal.Price}");
             }
          }
         public void RemoveMenuItemByName()
@@ -100,9 +104,9 @@ namespace KomodoCafeConsole
         }
         private void SeedMenuList()
         {
-            Meal hamburger = new Meal(1, "Hamburger", "burger on bun", null, 1.25m);
-            Meal cheeseburger = new Meal(2, "Cheeseburger", "burger with cheese on a bun", null, 1.75m);
-            Meal nuggets = new Meal(3, "Chicken Nuggets", "nuggets", null, 2.00m);
+            Menu hamburger = new Menu(1, "Hamburger", "burger on bun", null, 1.25m);
+            Menu cheeseburger = new Menu(2, "Cheeseburger", "burger with cheese on a bun", null, 1.75m);
+            Menu nuggets = new Menu(3, "Chicken Nuggets", "nuggets", null, 2.00m);
 
             menuRepo.AddItemToMenu(hamburger);
             menuRepo.AddItemToMenu(cheeseburger);

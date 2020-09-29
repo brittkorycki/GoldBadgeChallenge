@@ -8,22 +8,22 @@ namespace KomodoCafeChallenge
 {
    public class MenuRepo
     {
-        public List<Meal> _menuItems = new List<Meal>();
+        public List<Menu> _menuItems = new List<Menu>();
 
         //Create
-        public void AddItemToMenu(Meal item)
+        public void AddItemToMenu(Menu item)
         {
             _menuItems.Add(item);
         }
         //Read
-        public List<Meal> GetMenuItems()
+        public List<Menu> GetMenuItems()
         {
             return _menuItems;
         }
         //Delete
         public bool RemoveMenuItembyName(string mealName)
         {
-            Meal item = GetMealByName(mealName);
+            Menu item = GetMealByName(mealName);
             if(item == null)
             {
                 return true;
@@ -34,9 +34,9 @@ namespace KomodoCafeChallenge
             }
         }
         //Helper
-        public Meal GetMealByName(string mealName)
+        public Menu GetMealByName(string mealName)
         {
-            foreach(Meal item in _menuItems)
+            foreach(Menu item in _menuItems)
             {
                 if (item.Name == mealName)
                 {
@@ -44,6 +44,12 @@ namespace KomodoCafeChallenge
                 }
             }
             return null;
+        }
+        public void AddIngredientsToList(List<string> ingredients)
+        {
+            ingredients.Add("bread");
+            ingredients.Add("burger patty");
+            ingredients.Add("pickle");
         }
         
     }

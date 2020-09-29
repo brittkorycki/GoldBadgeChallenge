@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using KomodoCafeChallenge;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace KomodoCafeTests
+namespace KomodoGreenPlanTests
 {
     [TestClass]
-    public class CafeUnitTest1
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
         {
-
+         return _gasCars;
         }
     }
-
 }
