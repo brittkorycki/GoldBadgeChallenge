@@ -45,8 +45,17 @@ namespace KomodoGreetingTests
         public void TestUpdateCustomer()
         {
             //Arrange
-            Customer customer = new Customer();
-
+            Customer newCustomer = new Customer();
+            string FirstName = "Brittany";
+            string LastName = "Korycki";
+            string TypeOfCustomer = "current";
+            //Act
+            newCustomer.FirstName = FirstName;
+            newCustomer.LastName = LastName;
+            newCustomer.TypeOfCustomer = TypeOfCustomer;
+            customerRepo.UpdateExistingCustomer(TypeOfCustomer, newCustomer);
+            //Assert
+            Assert.AreNotEqual(TypeOfCustomer, "past");
         }
     }
 }

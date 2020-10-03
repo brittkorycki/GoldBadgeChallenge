@@ -3,6 +3,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace KomodoGreetingConsole
         private CustomerRepo _customerRepo = new CustomerRepo();
         public void Run()
         {
+            SeedCustomer();
             Menu();
         }
         //display menu
@@ -70,6 +72,7 @@ namespace KomodoGreetingConsole
                 type = Console.ReadLine();
             }
             newCustomer.TypeOfCustomer = type;
+            _customerRepo.AddCustomer(newCustomer);
 
         }
         //Read
@@ -147,9 +150,18 @@ namespace KomodoGreetingConsole
             {
                 Console.WriteLine("We currently have the lowest rates on Helicopter Insurance!");      
             }
-         
-
         }
+        private void SeedCustomer()
+        {
+            Customer brittany = new Customer("Brittany", "Korycki", "past");
+            Customer veronica = new Customer("Veronica", "Smith", "current");
+            Customer jeff = new Customer("Jeff", "Korycki", "potential");
+
+            _customerRepo.AddCustomer(brittany);
+            _customerRepo.AddCustomer(veronica);
+            _customerRepo.AddCustomer(jeff);
+        }
+
     }  
 
 
