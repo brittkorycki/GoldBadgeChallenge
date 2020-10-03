@@ -1,2 +1,6 @@
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\obj\Debug\KomodoGreetingRepository.csprojAssemblyReference.cache
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\obj\Debug\KomodoGreetingRepository.csproj.CoreCompileInputs.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\bin\Debug\KomodoGreeting.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\bin\Debug\KomodoGreeting.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\obj\Debug\KomodoGreeting.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreeting\obj\Debug\KomodoGreeting.pdb

@@ -77,21 +77,21 @@ namespace KomodoGreenPlan
             }
             else
             {
-                _Remove(car);
+                gasCar.Remove(car);
                 return true;
             }
         }
         //Helper Method
         public Car GetCarByModel(string model)
         {
-            foreach (Car car in )
+            foreach (Car car in gasCar)
             {
                 if (car.Model.ToLower() == model.ToLower())
                 {
                     return car;
                 }
             }
-            return null;
+         
         }
 
     }

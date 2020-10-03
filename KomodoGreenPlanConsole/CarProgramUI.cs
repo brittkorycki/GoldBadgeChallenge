@@ -73,7 +73,7 @@ namespace KomodoGreenPlanConsole
             Car newCar = new Car();
             Console.WriteLine("Please enter the make of the new car.");
             newCar.Make = Console.ReadLine();
-            Console.WriteLine("Please enter the model of the new gas car.");
+            Console.WriteLine("Please enter the model of the new car.");
             newCar.Model = Console.ReadLine();
             while (type.ToLower() != "gas" && type.ToLower() != "electric" && type.ToLower() != "hybrid")
             {
@@ -136,7 +136,7 @@ namespace KomodoGreenPlanConsole
                 Console.WriteLine("The gas car could not be deleted.");
             }
         }
-     
+        
 
     }
 }

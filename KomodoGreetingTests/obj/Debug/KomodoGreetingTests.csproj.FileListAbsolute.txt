@@ -1,2 +1,16 @@
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\obj\Debug\KomodoGreetingTests.csproj.CoreCompileInputs.cache
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\obj\Debug\KomodoGreetingTests.csprojAssemblyReference.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\KomodoGreetingTests.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\KomodoGreetingTests.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\KomodoGreeting.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\KomodoGreeting.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\obj\Debug\KomodoGreetingTests.csproj.CopyComplete
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\obj\Debug\KomodoGreetingTests.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreetingTests\obj\Debug\KomodoGreetingTests.pdb

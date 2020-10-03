@@ -16,7 +16,7 @@ namespace KomodoGreeting
             customer.Add(person);
         }
         //Read
-        public List<Customer> GetCustomers(string originalCustomer)
+        public List<Customer> GetCustomers()
         {
             return customer;
         }
@@ -29,7 +29,6 @@ namespace KomodoGreeting
                 oldCustomer.FirstName = newCustomer.FirstName;
                 oldCustomer.LastName = newCustomer.LastName;
                 oldCustomer.TypeOfCustomer = newCustomer.TypeOfCustomer;
-                oldCustomer.EmailToSend = newCustomer.EmailToSend;
                 return true;
             }
             else
@@ -47,6 +46,7 @@ namespace KomodoGreeting
             }
             else
             {
+                customer.Remove(person);
                 return true;
             }
         }
