@@ -12,37 +12,46 @@ namespace KomodoGreenPlanConsole
 {
     public class CarProgramUI
     {
-        public GasCars _gasCars = new GasCars();
-        public ElectricCars _electricCars = new ElectricCars();
-        public HybridCars _hybridCars = new HybridCars();
+        private CarRepository carRepo = new CarRepository();
 
         public void Run()
-        { 
+        {
             Menu();
         }
+        //display menu of each type of car
         private void Menu()
         {
             bool keepRunning = true;
             while (keepRunning)
             {
-                Console.WriteLine("Select a list to use\n" +
-                    "1. Gas Cars\n" +
-                    "2. Electric Cars\n" +
-                    "3. Hybrid Cars\n" +
-                    "4. Exit");
+                Console.WriteLine("Select menu option:\n" +
+                    "1. Create new car.\n" +
+                    "2. Display all cars.\n" +
+                    "3. Update cars.\n" +
+                    "4. Delete car.\n" +
+                    "5. Exit");
                 string input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
-                        GetGasCarsList();
+                        CreateNewCar();
                         break;
                     case "2":
-                        GetElectricCarsList();
+                        string choice1 = String.Empty;
+                        while (choice1.ToLower() != "gas" && choice1.ToLower() != "electric" && choice1.ToLower() != "hybrid")
+                        { Console.WriteLine("Enter gas, electric, or hybrid");
+                            choice1 = Console.ReadLine().ToLower();
+                        }
+                        List<Car> cars = carRepo.GetCarList(choice1);
+                        DisplayCarList(cars);
                         break;
                     case "3":
-                        GetHybricCarsList();
+                        UpdateExistingCar();
                         break;
                     case "4":
+                        RemoveCarFromList();
+                        break;
+                    case "5":
                         Console.WriteLine("Goodbye!");
                         keepRunning = false;
                         break;
@@ -50,61 +59,84 @@ namespace KomodoGreenPlanConsole
                         Console.WriteLine("Please choose a valid option.");
                         break;
                 }
-                
+
             }
         }
-        public void GetGasCarsList()
-        {
-            Console.Clear();
-            Console.WriteLine("Please select an option for the Gas Cars.\n" +
-                "1. Create new car.\n" +
-                "2. Update existing car.\n" +
-                "3. Delete existing car.\n" +
-                "4. Return to main menu.");
-            List<GasCars> gasCars = GetGasCarsList();
+      
 
-                foreach (GasCars gasCars1 in gasCars)
-                {
-                Console.WriteLine($"Make: {gasCars1.Make}\n" +
-                    $"Model: {gasCars1.Model}\n" +
-                    $"Number of wheels: {gasCars1.NumberOfWheels}\n" +
-                    $"Miles per gallon of gas: {gasCars1.MilesPerGallon}\n" +
-                    $"");
-                }
-            string choice1 = Console.ReadLine();
-            switch (choice1)
-            {
-                case "1":
-                    CreateNewGasCar();
-                    break;
-                case "2":
-                    UpdateExistingGasCar();
-                    break;
-                case "3":
-                    DeleteExistingGasCar();
-                    break;
-                case "4":
-                    Menu();
-                    break;
-                default:
-                    Console.WriteLine("Please make a valid selection.");
-                    break;
-            }
-
-        }
-        public void CreateNewGasCar()
+     
+        //Create new car
+        private void CreateNewCar()
         {
+            string type = String.Empty;
             Console.Clear();
-            GasCars newGasCar = new GasCars();
-            Console.WriteLine("Please enter the make of the new gas car.");
-            newGasCar.Make = Console.ReadLine();
+            Car newCar = new Car();
+            Console.WriteLine("Please enter the make of the new car.");
+            newCar.Make = Console.ReadLine();
             Console.WriteLine("Please enter the model of the new gas car.");
-            newGasCar.Model = Console.ReadLine();
-
-
+            newCar.Model = Console.ReadLine();
+            while (type.ToLower() != "gas" && type.ToLower() != "electric" && type.ToLower() != "hybrid")
+            {
+                Console.WriteLine("Please enter the type of new car.");
+                type = Console.ReadLine();
+            }
+            newCar.Type = type;
+            Console.WriteLine("Please enter the miles per gallon of the new gas car.");
+            string milesPerGallonAsString = Console.ReadLine();
+            newCar.MilesPerGallon = int.Parse(milesPerGallonAsString);
         }
+        //Display car lists
+        private void DisplayCarList(List<Car> cars)
+        {
+            foreach (Car car in cars)
+            {
+                Console.WriteLine(car.Make + " " + car.Make + " " + car.Type + " " + car.MilesPerGallon + "\n");
+            }
+        }
+        //Update existing car
+        private void UpdateExistingCar()
+        {
+            GetCarByModel();
+            string oldCarModel = Console.ReadLine();
+            Car newCar = new Car();
+            Console.WriteLine("Enter the make of the car:");
+            newCar.Make = Console.ReadLine();
+            Console.WriteLine("Enter the model of the car:");
+            newCar.Model = Console.ReadLine();
+            Console.WriteLine("Enter the type of car, gas, electric or hyrid.");
+            newCar.Type = Console.ReadLine();
+            Console.WriteLine("Please enter the miles per gallon of the car.");
+            string milesPerGallonAsString = Console.ReadLine();
+            newCar.MilesPerGallon = int.Parse(milesPerGallonAsString);
 
+            bool wasUpdated = _Car.UpdateCar(oldCarModel, newCar);
 
+            if (wasUpdated)
+            {
+                Console.WriteLine("The car was successfully updated.");
+            }
+            else
+            {
+                Console.WriteLine("Could not update the car.");
+            }
+        }
+        //Delete existing car
+        private void RemoveCarFromList()
+        {
+           
+            Console.WriteLine("Enter the make of car you would like to remove.");
+            string choice2 = Console.ReadLine();
+            bool wasCarDeleted = (choice2);
+            if (wasCarDeleted)
+            {
+                Console.WriteLine("The gas car was successfully deleted.");
+            }
+            else
+            {
+                Console.WriteLine("The gas car could not be deleted.");
+            }
+        }
+     
 
     }
 }

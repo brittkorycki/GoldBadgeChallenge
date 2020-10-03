@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace KomodoGreenPlanTests
 {
     [TestClass]
-    public class UnitTest1
+    public class GreenPlanTests
     {
         [TestMethod]
         public void TestMethod1()

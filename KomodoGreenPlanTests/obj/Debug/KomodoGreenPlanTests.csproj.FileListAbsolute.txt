@@ -1,0 +1,2 @@
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.csprojAssemblyReference.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.csproj.CoreCompileInputs.cache

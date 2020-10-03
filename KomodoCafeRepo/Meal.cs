@@ -13,7 +13,6 @@ namespace KomodoCafeChallenge
         public string Name { get; set; }
         public string Description { get; set; }
         public List<string> IngredientsList = new List<string>();
-        public object ingredientsList { get; set; }
         public decimal Price { get; set; }
         
 

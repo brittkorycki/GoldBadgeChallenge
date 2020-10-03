@@ -26,10 +26,11 @@ namespace KomodoCafeChallenge
             Menu item = GetMealByName(mealName);
             if(item == null)
             {
-                return true;
+                return false;
             }
             else
             {
+                _menuItems.Remove(item);
                 return true;
             }
         }
@@ -44,12 +45,6 @@ namespace KomodoCafeChallenge
                 }
             }
             return null;
-        }
-        public void AddIngredientsToList(List<string> ingredients)
-        {
-            ingredients.Add("bread");
-            ingredients.Add("burger patty");
-            ingredients.Add("pickle");
         }
         
     }

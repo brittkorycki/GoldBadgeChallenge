@@ -17,7 +17,6 @@ namespace KomodoCafeConsole
 
         public void Run()
         {
-            SeedMenuList();
             Options();
         }
         public void Options()
@@ -80,10 +79,16 @@ namespace KomodoCafeConsole
             List<Menu> menuDisplay = menuRepo.GetMenuItems();
             foreach (Menu meal in menuDisplay)
             {
+                string ingredients = String.Empty;
+                foreach (string ingredient in meal.IngredientsList)
+                {
+                    ingredients += ingredient + "\n";
+
+                }
                 Console.WriteLine($"Meal: {meal.Number}\n" +
                     $"Number: {meal.Name}\n" +
                     $"Description: {meal.Description}\n" +
-                    $"Ingredients: {meal.IngredientsList}\n" +
+                    $"Ingredients: {ingredients}\n" +
                     $"Price: ${meal.Price}");
             }
          }
@@ -102,15 +107,6 @@ namespace KomodoCafeConsole
                 Console.WriteLine("The menu item could not be deleted.");
             }
         }
-        private void SeedMenuList()
-        {
-            Menu hamburger = new Menu(1, "Hamburger", "burger on bun", null, 1.25m);
-            Menu cheeseburger = new Menu(2, "Cheeseburger", "burger with cheese on a bun", null, 1.75m);
-            Menu nuggets = new Menu(3, "Chicken Nuggets", "nuggets", null, 2.00m);
-
-            menuRepo.AddItemToMenu(hamburger);
-            menuRepo.AddItemToMenu(cheeseburger);
-            menuRepo.AddItemToMenu(nuggets);
-          }
+        
     }
 }
