@@ -34,7 +34,7 @@ namespace KomodoCafeTests
             menuRepo.AddItemToMenu(newMeal);
             Menu item = menuRepo.GetMealByName(Name);
             //Assert
-            Assert.AreSame(item.Name, "Brittany", "menu item name does not match.");
+            Assert.AreSame(item.Name, "burger", "menu item name does not match.");
         }
         [TestMethod]
         public void TestMethodRemoveItem()
@@ -58,7 +58,7 @@ namespace KomodoCafeTests
             //Act
             _menuItems = menuRepo.GetMenuItems();
             //Assert
-            Assert.IsNull(_menuItems, "No menu items found.");
+            Assert.IsNotNull(_menuItems, "No menu items found.");
         }
     }
 }

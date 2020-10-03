@@ -12,7 +12,7 @@ namespace KomodoGreeting
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string TypeOfCustomer { get; set; }
-        
+
         public Customer() { }
 
         public Customer(string firstName, string lastName, string typeOfCustomer)

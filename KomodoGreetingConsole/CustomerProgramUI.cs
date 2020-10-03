@@ -14,7 +14,7 @@ namespace KomodoGreetingConsole
         private CustomerRepo _customerRepo = new CustomerRepo();
         public void Run()
         {
-            SeedCustomer();
+
             Menu();
         }
         //display menu
@@ -59,6 +59,7 @@ namespace KomodoGreetingConsole
         private void CreateCustomer()
         {
             string type = String.Empty;
+          
             Console.Clear();
             Customer newCustomer = new Customer();
             Console.WriteLine("Enter the customer's first name:");
@@ -72,27 +73,28 @@ namespace KomodoGreetingConsole
                 type = Console.ReadLine();
             }
             newCustomer.TypeOfCustomer = type;
+            
+            //_customerRepo.EmailToSend();
             _customerRepo.AddCustomer(newCustomer);
 
         }
         //Read
         private void SeeAllCustomers()
         {
-   
+            Customer customer = new Customer();
             Console.Clear();
             List<Customer> listOfCustomers = _customerRepo.GetCustomers();
-            listOfCustomers.Sort();
-            foreach(Customer customer in listOfCustomers)
+            //listOfCustomers.Sort();
+            foreach (Customer customer1 in listOfCustomers)
             {
-                Console.WriteLine(customer.FirstName + " " + customer.LastName + " " + customer.TypeOfCustomer + " " + "\n");
+                Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "\n");
             }
-
         }
         //Update
         private void UpdateExistingCustomer()
         {
             SeeAllCustomers();
-            Console.WriteLine("Enter the first name of the customer you would like to update:");
+            Console.WriteLine("Enter the last name of the customer you would like to update:");
             string oldCustomer = Console.ReadLine();
             Console.Clear();
             Customer newCustomer = new Customer();
@@ -108,12 +110,14 @@ namespace KomodoGreetingConsole
 
             if (wasUpdated)
             {
-              Console.WriteLine("Customer was successfully updated!");
+                Console.WriteLine("Customer was successfully updated!");
             }
             else
             {
-             Console.WriteLine("Could not update customer.");
+                Console.WriteLine("Could not update customer.");
             }
+
+            _customerRepo.AddCustomer(newCustomer);
         }
 
 
@@ -133,35 +137,7 @@ namespace KomodoGreetingConsole
                 Console.WriteLine("The customer could not be deleted.");
             }
         }
-        //Helper
-       
-        private void EmailToSend(Customer customer)
-        {
         
-            if (customer.TypeOfCustomer== "past")
-            {
-                Console.WriteLine("It's been a long time since we've heard from you, we want you back.");
-            }
-            else if (customer.TypeOfCustomer == "current")
-            {
-                Console.WriteLine("Thank you for your work with us. We appreciate your loyalty. Here's a coupon.");
-            }
-            else
-            {
-                Console.WriteLine("We currently have the lowest rates on Helicopter Insurance!");      
-            }
-        }
-        private void SeedCustomer()
-        {
-            Customer brittany = new Customer("Brittany", "Korycki", "past");
-            Customer veronica = new Customer("Veronica", "Smith", "current");
-            Customer jeff = new Customer("Jeff", "Korycki", "potential");
-
-            _customerRepo.AddCustomer(brittany);
-            _customerRepo.AddCustomer(veronica);
-            _customerRepo.AddCustomer(jeff);
-        }
-
     }  
 
 

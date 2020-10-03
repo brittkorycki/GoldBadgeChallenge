@@ -68,17 +68,27 @@ namespace KomodoGreenPlan
             }
         }
         //Delete
-        public bool RemoveCarFromList(string model)
+        public void RemoveCarFromList(string model)
         { 
             Car car = GetCarByModel(model);
-            if (model == null)
+            if (car == null)
             {
-                return false;
+                Console.WriteLine("The car could not be found.");   
+            }
+            else if(car = model)
+            {
+                gasCar.Remove(car);
+                Console.WriteLine("The car was removed from the gas cars list.");
+            }
+            else if(car = model)
+            {
+                electricCar.Remove(car);
+                Console.WriteLine("The car was removed from the electric cars list.");
             }
             else
             {
-                gasCar.Remove(car);
-                return true;
+                hybridCar.Remove(car);
+                Console.WriteLine("The car was removed from the hybrid cars list.");
             }
         }
         //Helper Method
@@ -90,8 +100,30 @@ namespace KomodoGreenPlan
                 {
                     return car;
                 }
+                else
+                {
+                    foreach (Car car1 in electricCar)
+                    {
+                        if (car1.Model.ToLower() == model.ToLower())
+                        {
+                            return car1;
+                        }
+                        else
+                        {
+                            foreach (Car car2 in hybridCar)
+                            {
+                                if (car2.Model.ToLower() == model.ToLower())
+                                {
+                                    return car2;
+                                }
+                            }
+                        }
+                    }
+                }
+                    return null;                         
+              
             }
-         
+                         
         }
 
     }

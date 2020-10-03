@@ -27,7 +27,7 @@ namespace KomodoGreetingTests
                 customerRepo.AddCustomer(customer);
                 Customer customer1 = customerRepo.GetCustomersByLastName(LastName);
                 //Assert
-                Assert.AreSame(customer1.LastName, "Brittany", "Customer name does not match.");
+                Assert.AreSame(customer1.LastName, "Korycki", "Customer name does not match.");
             }
         }
         [TestMethod]
