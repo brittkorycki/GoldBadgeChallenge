@@ -58,7 +58,7 @@ namespace KomodoGreenPlan
                 if (car.Make == make && car.Model == model)
                 {
                     car.Make = make;
-                    car.Make = model;
+                    car.Model = model;
                     car.MilesPerGallon = mpg;
                     break;
                 }

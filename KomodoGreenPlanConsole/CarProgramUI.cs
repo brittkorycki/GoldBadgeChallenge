@@ -30,7 +30,7 @@ namespace KomodoGreenPlanConsole
                     "3. Update car\n" +
                     "4. Delete car\n" +
                     "5. Exit");
-                string input = Console.ReadLine();
+                string input = Console.ReadLine().ToLower();
                 switch (input)
                 {
                     case "1":
@@ -73,17 +73,17 @@ namespace KomodoGreenPlanConsole
             Console.Clear();
             Car newCar = new Car();
             Console.WriteLine("Please enter the make of the new car.");
-            newCar.Make = Console.ReadLine();
+            newCar.Make = Console.ReadLine().ToLower();
             Console.WriteLine("Please enter the model of the new car.");
-            newCar.Model = Console.ReadLine();
+            newCar.Model = Console.ReadLine().ToLower();
             while (type.ToLower() != "gas" && type.ToLower() != "electric" && type.ToLower() != "hybrid")
             {
                 Console.WriteLine("Please enter the type of new car.");
-                type = Console.ReadLine();
+                type = Console.ReadLine().ToLower();
             }
             newCar.Type = type;
             Console.WriteLine("Please enter the miles per gallon of the new gas car.");
-            string milesPerGallonAsString = Console.ReadLine();
+            string milesPerGallonAsString = Console.ReadLine().ToLower();
             newCar.MilesPerGallon = int.Parse(milesPerGallonAsString);
             carRepo.AddCarToList(newCar);
         }
@@ -99,11 +99,11 @@ namespace KomodoGreenPlanConsole
         private void UpdateExistingCar()
         {
             Console.WriteLine("Enter the make of the car:");
-            string Make = Console.ReadLine();
+            string Make = Console.ReadLine().ToLower();
             Console.WriteLine("Enter the model of the car:");
-            string Model = Console.ReadLine();
+            string Model = Console.ReadLine().ToLower();
             Console.WriteLine("Enter the miles per gallon of the car:");
-            string milesPerGallonAsString = Console.ReadLine();
+            string milesPerGallonAsString = Console.ReadLine().ToLower();
             int MilesPerGallon = int.Parse(milesPerGallonAsString);
             carRepo.UpdateCar(Make, Model, MilesPerGallon);
         }
@@ -112,7 +112,7 @@ namespace KomodoGreenPlanConsole
         {
 
             Console.WriteLine("Enter the model of car you would like to remove.");
-            string choice2 = Console.ReadLine();
+            string choice2 = Console.ReadLine().ToLower();
             Car car = carRepo.GetCarByModel(choice2);
             if (car != null)
             {
