@@ -66,16 +66,18 @@ namespace KomodoGreetingConsole
             newCustomer.FirstName = Console.ReadLine();
             Console.WriteLine("Enter the customer's last name:");
             newCustomer.LastName = Console.ReadLine();
-            newCustomer.TypeOfCustomer = Console.ReadLine();
             while (type.ToLower() != "past" && type.ToLower() != "current" && type.ToLower() != "potential")
             {
-                Console.WriteLine("Please enter the type of customer.");
+                Console.WriteLine("Please enter the type of customer:");
                 type = Console.ReadLine();
             }
+            newCustomer.TypeOfCustomer = Console.ReadLine();
             newCustomer.TypeOfCustomer = type;
-            
-            //_customerRepo.EmailToSend();
+            Console.WriteLine("Enter the customer's email address:");
+            newCustomer.EmailAddress = Console.ReadLine();
             _customerRepo.AddCustomer(newCustomer);
+
+            _customerRepo.EmailToSend(newCustomer.TypeOfCustomer, newCustomer.EmailAddress);
 
         }
         //Read
@@ -84,7 +86,7 @@ namespace KomodoGreetingConsole
             Customer customer = new Customer();
             Console.Clear();
             List<Customer> listOfCustomers = _customerRepo.GetCustomers();
-            //listOfCustomers.Sort();
+            listOfCustomers.Sort();
             foreach (Customer customer1 in listOfCustomers)
             {
                 Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "\n");
@@ -116,16 +118,15 @@ namespace KomodoGreetingConsole
             {
                 Console.WriteLine("Could not update customer.");
             }
-
-            _customerRepo.AddCustomer(newCustomer);
         }
 
 
         //Delete
         private void DeleteCustomer()
         {
-            SeeAllCustomers();
-            Console.WriteLine("Enter the name of the customer you wish to delete.");
+            string lastName = String.Empty;
+            _customerRepo.GetCustomersByLastName(lastName);
+            Console.WriteLine("Enter the last name of the customer you wish to delete.");
             string input = Console.ReadLine();
             bool wasDeleted = _customerRepo.RemoveCustomer(input);
             if (wasDeleted)

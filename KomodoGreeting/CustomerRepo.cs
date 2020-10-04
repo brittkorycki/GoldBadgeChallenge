@@ -62,21 +62,27 @@ namespace KomodoGreeting
             }
             return null;
         }
-        public void EmailToSend()
+        public bool EmailToSend(string type, string emailAddress)
         {
-            Customer customer = new Customer();
 
-            if (customer.TypeOfCustomer == "past")
+            if (type == "past")
             {
                 Console.WriteLine("It's been a long time since we've heard from you, we want you back.");
+                return true;
             }
-            else if (customer.TypeOfCustomer == "current")
+            else if (type== "current")
             {
                 Console.WriteLine("Thank you for your work with us. We appreciate your loyalty. Here's a coupon.");
+                return true;
+            }
+            else if (type == "potential")
+            {
+                Console.WriteLine("We currently have the lowest rates on Helicopter Insurance!");
+                return true;
             }
             else
             {
-                Console.WriteLine("We currently have the lowest rates on Helicopter Insurance!");
+                return false;
             }
         }
     }

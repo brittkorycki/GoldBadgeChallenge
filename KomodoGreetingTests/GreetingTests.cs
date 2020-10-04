@@ -49,13 +49,33 @@ namespace KomodoGreetingTests
             string FirstName = "Brittany";
             string LastName = "Korycki";
             string TypeOfCustomer = "current";
+            string EmailAddress = "brittany@gmail.com";
             //Act
             newCustomer.FirstName = FirstName;
             newCustomer.LastName = LastName;
             newCustomer.TypeOfCustomer = TypeOfCustomer;
+            newCustomer.EmailAddress = EmailAddress;
             customerRepo.UpdateExistingCustomer(TypeOfCustomer, newCustomer);
             //Assert
             Assert.AreNotEqual(TypeOfCustomer, "past");
         }
+        [TestMethod]
+        public void TestEmailToSend()
+        {
+            //Arrange
+            Customer customer = new Customer();
+            string FirstName = "Brittany";
+            string LastName = "Korycki";
+            string TypeOfCustomer = "past";
+            string EmailAddress = "brittany@gmail.com";
+            //Act
+            customer.FirstName = FirstName;
+            customer.LastName = LastName;
+            customer.TypeOfCustomer = TypeOfCustomer;
+            customer.EmailAddress = EmailAddress;
+            //Assert
+            Assert.IsTrue(customerRepo.EmailToSend(customer.TypeOfCustomer, customer.EmailAddress), "email not sent");
+        }
     }
+    
 }
