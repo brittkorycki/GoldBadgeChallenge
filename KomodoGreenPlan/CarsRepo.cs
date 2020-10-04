@@ -18,11 +18,11 @@ namespace KomodoGreenPlan
         //Create
         public void AddCarToList(Car car)
         {
-            if (car.Type == "Gas")
+            if (car.Type.ToLower() == "gas")
             {
                 gasCar.Add(car);
             }
-            else if (car.Type == "Electric")
+            else if (car.Type.ToLower() == "electric")
             {
                 electricCar.Add(car);
             }
@@ -51,79 +51,100 @@ namespace KomodoGreenPlan
             }
         }
         //Update
-        public bool UpdateCar(string originalModel, Car newCar)
+        public void UpdateCar(string make, string model, int mpg)
         {
-            Car oldCar = GetCarByModel(originalModel);
-            if (oldCar != null)
+            foreach (Car car in gasCar)
             {
-                oldCar.Make = newCar.Make;
-                oldCar.Model = newCar.Model;
-                oldCar.Type = newCar.Type;
-                oldCar.MilesPerGallon = newCar.MilesPerGallon;
-                return true;
+                if (car.Make == make && car.Model == model)
+                {
+                    car.Make = make;
+                    car.Make = model;
+                    car.MilesPerGallon = mpg;
+                    break;
+                }
             }
-            else
+            foreach (Car car in electricCar)
             {
-                return false;
+                if (car.Make == make && car.Model == model)
+                {
+                    car.Make = make;
+                    car.Make = model;
+                    car.MilesPerGallon = mpg;
+                    break;
+                }
             }
+
+            foreach (Car car in hybridCar)
+            {
+                if (car.Make == make && car.Model == model)
+                {
+                    car.Make = make;
+                    car.Make = model;
+                    car.MilesPerGallon = mpg;
+                    break;
+                }
+            }
+          
         }
         //Delete
-        public void RemoveCarFromList(string model)
-        { 
-            Car car = GetCarByModel(model);
-            if (car == null)
-            {
-                Console.WriteLine("The car could not be found.");   
-            }
-            else if(car = model)
+        public bool RemoveCarFromList(Car car)
+        {
+            if(car.Type == "Gas")
             {
                 gasCar.Remove(car);
-                Console.WriteLine("The car was removed from the gas cars list.");
             }
-            else if(car = model)
+            else if(car.Type == "Electric")
             {
                 electricCar.Remove(car);
-                Console.WriteLine("The car was removed from the electric cars list.");
             }
-            else
+            else if(car.Type == "Hybrid")
             {
                 hybridCar.Remove(car);
-                Console.WriteLine("The car was removed from the hybrid cars list.");
             }
+            return true; 
         }
         //Helper Method
         public Car GetCarByModel(string model)
         {
+            Car rtnCar = new Car();
+
             foreach (Car car in gasCar)
             {
                 if (car.Model.ToLower() == model.ToLower())
                 {
-                    return car;
+                    rtnCar = car;
+                    break;
                 }
-                else
+            }
+
+            if (rtnCar != null)
+
+            {
+                foreach (Car car1 in electricCar)
                 {
-                    foreach (Car car1 in electricCar)
+                    if (car1.Model.ToLower() == model.ToLower())
                     {
-                        if (car1.Model.ToLower() == model.ToLower())
-                        {
-                            return car1;
-                        }
-                        else
-                        {
-                            foreach (Car car2 in hybridCar)
-                            {
-                                if (car2.Model.ToLower() == model.ToLower())
-                                {
-                                    return car2;
-                                }
-                            }
-                        }
+                        rtnCar = car1;
+                        break;
                     }
                 }
-                    return null;                         
+            }
+
+            if (rtnCar != null)
+           
+            {
+                foreach (Car car2 in hybridCar)
+                {
+                    if (car2.Model.ToLower() == model.ToLower())
+                    {
+                        rtnCar = car2;
+                        break;
+                    }
+                }
+                                              
               
             }
-                         
+            return rtnCar;
         }
 
     }

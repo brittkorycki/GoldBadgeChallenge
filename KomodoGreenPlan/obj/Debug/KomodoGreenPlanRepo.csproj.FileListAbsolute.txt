@@ -1,2 +1,6 @@
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\obj\Debug\KomodoGreenPlanRepo.csprojAssemblyReference.cache
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\obj\Debug\KomodoGreenPlanRepo.csproj.CoreCompileInputs.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\bin\Debug\KomodoGreenPlan.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\bin\Debug\KomodoGreenPlan.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\obj\Debug\KomodoGreenPlan.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlan\obj\Debug\KomodoGreenPlan.pdb

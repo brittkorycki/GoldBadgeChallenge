@@ -71,7 +71,6 @@ namespace KomodoGreetingConsole
                 Console.WriteLine("Please enter the type of customer:");
                 type = Console.ReadLine();
             }
-            newCustomer.TypeOfCustomer = Console.ReadLine();
             newCustomer.TypeOfCustomer = type;
             Console.WriteLine("Enter the customer's email address:");
             newCustomer.EmailAddress = Console.ReadLine();
@@ -90,6 +89,20 @@ namespace KomodoGreetingConsole
             foreach (Customer customer1 in listOfCustomers)
             {
                 Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "\n");
+
+                if (customer1.TypeOfCustomer == "past")
+                {
+                    Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "It's been a long time since we've heard from you, we want you back.");
+                }
+                else if (customer1.TypeOfCustomer == "current")
+                {
+                    Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "Thank you for your work with us. We appreciate your loyalty. Here's a coupon.");
+                }
+                else if (customer1.TypeOfCustomer == "potential")
+                {
+                    Console.WriteLine(customer1.FirstName + " " + customer1.LastName + " " + customer1.TypeOfCustomer + " " + "We currently have the lowest rates on Helicopter Insurance!");
+                    
+                }
             }
         }
         //Update

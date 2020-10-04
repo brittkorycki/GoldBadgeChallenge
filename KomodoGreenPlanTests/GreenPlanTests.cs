@@ -9,10 +9,7 @@ namespace KomodoGreenPlanTests
     public class GreenPlanTests
     {
         CarRepository carRepo = new CarRepository();
-        //List<Car> gasCar = new List<Car>();
-        //List<Car> electricCar = new List<Car>();
-        //List<Car> hybridCar = new List<Car>();
-
+        
         [TestMethod]
         public void TestMehodAddCar()
         {
@@ -32,10 +29,48 @@ namespace KomodoGreenPlanTests
             Car car = carRepo.GetCarByModel(Model);
 
             //Assert
-            Assert.AreSame(car.Model, "Toyota", "car model does not match");
+            Assert.AreSame(car.Model, "Sedona", "car model does not match");
              
+        }
+        [TestMethod]
+        public void TestUpdateCar()
+        {
+            //Arrange
+            Car newCar = new Car();
+            string Make = "Kia";
+            string Model = "Sedona";
+            int MilesPerGallon = 35;
+           
+            //Act
+            newCar.Make = Make;
+            newCar.Model = Model;
+            newCar.MilesPerGallon = MilesPerGallon;
+            carRepo.UpdateCar(Make, Model, MilesPerGallon);
+            
+            //Assert
+            Assert.AreNotEqual(Model, "Forte");
+        }
+        [TestMethod]
+        public void TestRemoveCar()
+        {
+            //Arrange
+            Car car = new Car();
+            string Model = "Forte";
+            //Act
+            carRepo.RemoveCarFromList(car);
+            //Assert
+            Assert.IsNotNull(carRepo.GetCarByModel(Model), "car not found.");
 
-
+        }
+        [TestMethod]
+        public void TestGetCarList()
+        {
+            //Arrange
+            List<Car> cars = new List<Car>();
+            //Act
+            cars = carRepo.GetCarList("gas");
+            //Assert
+            Assert.IsNotNull(cars, "No cars list found.");
         }
     }
 }

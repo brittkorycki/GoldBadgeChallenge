@@ -1,2 +1,10 @@
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\obj\Debug\KomodoGreenPlanConsole.csproj.CoreCompileInputs.cache
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\obj\Debug\KomodoGreenPlanConsole.csprojAssemblyReference.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\bin\Debug\KomodoGreenPlanConsole.exe.config
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\bin\Debug\KomodoGreenPlanConsole.exe
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\bin\Debug\KomodoGreenPlanConsole.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\bin\Debug\KomodoGreenPlan.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\bin\Debug\KomodoGreenPlan.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\obj\Debug\KomodoGreenPlanConsole.csproj.CopyComplete
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\obj\Debug\KomodoGreenPlanConsole.exe
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanConsole\obj\Debug\KomodoGreenPlanConsole.pdb

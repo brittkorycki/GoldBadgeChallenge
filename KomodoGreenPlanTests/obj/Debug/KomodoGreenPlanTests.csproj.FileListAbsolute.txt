@@ -1,2 +1,16 @@
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.csprojAssemblyReference.cache
 C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.csproj.CoreCompileInputs.cache
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\KomodoGreenPlanTests.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\KomodoGreenPlanTests.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\KomodoGreenPlan.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\KomodoGreenPlan.pdb
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.csproj.CopyComplete
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.dll
+C:\Users\britt\source\repos\GoldBadgeChallenges\KomodoGreenPlanTests\obj\Debug\KomodoGreenPlanTests.pdb
